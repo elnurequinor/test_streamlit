@@ -34,7 +34,7 @@ RUN pip install pylint
 # Release image
 #
 FROM base as release
-WORKDIR /app/src
+WORKDIR /app
 EXPOSE 8501
 USER 1000
 ENTRYPOINT ["streamlit", "run"]
