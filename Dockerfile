@@ -25,9 +25,9 @@ RUN pip install pylint
 #
 # Run tests and lint (Pylint)
 #
-FROM dependencies as testing
-WORKDIR /app/src
-RUN python3 test.py
+#FROM dependencies as testing
+#WORKDIR /app/src
+#RUN python3 test.py
 # RUN pylint streamlit-app.py
 
 #
