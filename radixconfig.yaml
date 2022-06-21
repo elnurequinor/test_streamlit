@@ -1,0 +1,37 @@
+apiVersion: "radix.equinor.com/v1"
+kind: "RadixApplication"
+metadata:
+  name: test-stream
+spec:
+  environments:
+    - name: dev
+      build:
+        from: main
+#     - name: prod
+#       build:
+#         from: release
+  components:
+    - name: www
+#      authentication:
+#        oauth2:
+#          clientId: 4601a8f7-50dc-409f-b964-9eb99bf519a0
+#          scope: openid profile email offline_access
+#          setXAuthRequestHeaders: true
+#          setAuthorizationHeader: true
+      src: .
+      ports:
+       - name: http
+         port: 8501
+      publicPort: http
+#       environmentConfig:
+#         - environment: prod
+#           runAsNonRoot: true          
+#           horizontalScaling:
+#             minReplicas: 2
+#             maxReplicas: 6  
+#       secrets:
+#         - DB_PASS
+     
+  dnsAppAlias:
+    environment: dev
+    component: www
